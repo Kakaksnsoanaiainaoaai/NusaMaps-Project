@@ -1,0 +1,197 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(to right, #28a745, #a8e6a3);
+  color: #000;
+  z-index: 5000;
+  transition: background 0.3s ease, padding 0.3s ease;
+}
+
+.navbar.scrolled {
+  padding: 0.5rem 2rem;
+  background: linear-gradient(to right, #218838, #7bd77b);
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.navbar.scrolled .logo {
+  font-size: 1.3rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #155724;
+}
+
+/* ================= MAP ================= */
+#map {
+  width: 100%;
+  height: calc(100vh - 70px);
+  display: block;
+  z-index: 1;
+}
+
+/* ================= LEAFLET FIX ================= */
+.leaflet-control-attribution {
+  background: transparent;
+  font-size: 12px;
+  padding: 2px 4px;
+}
+
+.leaflet-control-attribution a {
+  color: #155724;
+  text-decoration: none;
+}
+
+.leaflet-control-attribution a:hover {
+  text-decoration: underline;
+}
+
+/* Geser zoom biar gak ketabrak navbar */
+.leaflet-top.leaflet-left {
+  top: 80px;
+  left: 10px;
+  z-index: 1000;
+}
+
+/* ================= HAMBURGER ================= */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 6000;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 100%;
+  background: #000;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+/* ================= MOBILE MENU ================= */
+@media (max-width: 768px) {
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 260px;
+    background: linear-gradient(to bottom, #28a745, #a8e6a3);
+    flex-direction: column;
+    padding-top: 80px;
+    padding-left: 25px;
+    gap: 2rem;
+    transition: right 0.3s ease;
+    z-index: 5500;
+    box-shadow: -5px 0 25px rgba(0,0,0,0.2);
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links li a {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  /* Animasi X */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}
+
+/* ================= SEARCH BAR ================= */
+.search-container {
+  position: fixed;
+  top: 85px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 260px;
+  background: white;
+  padding: 10px 15px;
+  border-radius: 30px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  z-index: 4000;
+}
+
+.search-container input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+/* ================= SUGGESTIONS ================= */
+#suggestions {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  max-height: 250px;
+  overflow-y: auto;
+  display: none;
+  z-index: 4500;
+}
+
+.suggestion-item {
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.suggestion-item:hover {
+  background: #f2f2f2;
+}
