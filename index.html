@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Map Modern - Google Maps Style</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Leaflet CSS (cdnjs) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    <!-- Leaflet Routing Machine CSS (cdnjs) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.12/leaflet-routing-machine.min.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Peta fullscreen -->
+    <div id="map"></div>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="search-input" placeholder="Cari lokasi..." autocomplete="off">
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+
+    <!-- Panel Rute (toggle) -->
+    <div class="route-panel" id="routePanel">
+        <div class="route-header">
+            <h3>Rute</h3>
+            <button id="closeRouteBtn" class="close-btn">&times;</button>
+        </div>
+        <div class="route-body">
+            <input type="text" id="start-input" placeholder="Lokasi awal" autocomplete="off">
+            <input type="text" id="end-input" placeholder="Lokasi tujuan" autocomplete="off">
+            <button id="route-btn" class="route-btn">Cari Rute</button>
+        </div>
+    </div>
+    <button id="toggleRouteBtn" class="toggle-route-btn" title="Rute">📍</button>
+
+    <!-- Dark Mode Toggle -->
+    <button id="darkModeToggle" class="dark-mode-btn" title="Dark Mode">🌙</button>
+
+    <!-- Kontrol Kanan Bawah: Lokasi & Zoom -->
+    <div class="controls-right">
+        <button id="geolocateBtn" class="control-btn" title="Lokasi Saya">🎯</button>
+        <button id="zoomInBtn" class="control-btn" title="Perbesar">+</button>
+        <button id="zoomOutBtn" class="control-btn" title="Perkecil">−</button>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loading" class="loading-spinner" style="display: none;">⏳</div>
+
+    <!-- Error Toast -->
+    <div id="errorToast" class="error-toast" style="display: none;"></div>
+
+    <!-- Leaflet JS (cdnjs) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <!-- Leaflet Routing Machine JS (cdnjs) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.12/leaflet-routing-machine.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
