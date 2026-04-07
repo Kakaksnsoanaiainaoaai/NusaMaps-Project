@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Modern</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- HEADER -->
+    <header class="header">
+      <h1>🌦️ Weather App</h1>
+      <p id="dateTime">Memuat waktu...</p>
+    </header>
+
+    <!-- SEARCH -->
+    <section class="search-section">
+      <input 
+        type="text" 
+        id="cityInput" 
+        placeholder="Cari kota..."
+        autocomplete="off"
+      >
+      <button id="searchBtn">🔍</button>
+      <button id="locBtn">📍</button>
+    </section>
+
+    <!-- LOADING -->
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+      <p>Loading cuaca...</p>
+    </div>
+
+    <!-- ERROR -->
+    <div id="errorBox" class="error hidden">
+      <p>❌ Kota tidak ditemukan</p>
+    </div>
+
+    <!-- WEATHER CARD -->
+    <section id="weatherCard" class="weather-card hidden">
+
+      <!-- KOTA -->
+      <h2 id="cityName">-</h2>
+
+      <!-- MAIN -->
+      <div class="main-weather">
+        <h1 id="temp">--°C</h1>
+        <p id="desc">--</p>
+      </div>
+
+      <!-- DETAIL -->
+      <div class="details">
+
+        <div class="detail-box">
+          <p>💨 Angin</p>
+          <h3 id="wind">-- km/h</h3>
+        </div>
+
+        <div class="detail-box">
+          <p>💧 Kelembapan</p>
+          <h3 id="humidity">--%</h3>
+        </div>
+
+        <div class="detail-box">
+          <p>🧭 Arah</p>
+          <h3 id="windDir">--</h3>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>Powered by Open-Meteo ⚡</p>
+    </footer>
+
+  </div>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
+</html>
